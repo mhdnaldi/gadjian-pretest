@@ -1,0 +1,32 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 10px 20px;
+}
+
+.header img {
+    width: 120px;
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+}
+
+.header-profile span {
+    color: #32BDBF;
+    margin-left: 5px;
+}
+
+.header-img {
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+    border-radius: 50%;
+    border:1px solid black;
+    display: grid;
+    place-items: center;
+}

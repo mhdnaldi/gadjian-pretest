@@ -1,0 +1,9 @@
+.home-main {
+    display: grid;
+    grid-template-columns:  1fr 4fr;
+}
+
+.home-personnel-list {
+    height: 600px;
+    background-color: rgb(221, 221, 221);
+}

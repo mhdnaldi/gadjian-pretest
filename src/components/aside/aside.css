@@ -1,0 +1,15 @@
+.aside {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.aside div {
+    display: flex;
+    align-items: center;
+    margin: 20px ;
+}
+
+.aside div img {
+    width: 25px;
+    margin-right: 10px;
+}
