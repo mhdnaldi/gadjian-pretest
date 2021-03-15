@@ -6,7 +6,7 @@ export const fetchStart = (page) => {
   return (dispatch) => {
     dispatch(fetchPending());
     axios
-      .get(`https://randomuser.me/api/?page=${page}&results=4&seed=abc`)
+      .get(`https://randomuser.me/api/?page=${page}&results=200&seed=abc`)
       .then((res) => {
         dispatch(fetchSuccess(res.data.results));
       })
@@ -33,5 +33,12 @@ export const fetchFailed = (error) => {
   return {
     type: actionTypes.FETCH_FAILED,
     error,
+  };
+};
+export const searchFilter = (data) => {
+  console.log(data);
+  return {
+    type: actionTypes.SEARCH_FILTER,
+    data,
   };
 };

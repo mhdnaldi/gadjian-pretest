@@ -17,6 +17,15 @@ const Home = (props) => {
 
   const findPersonnelHandler = (event) => {
     console.log(event.target.value);
+    let searchFilter = props.personnels.filter((el) =>
+      el.name.first.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    if (event.target.value === "") {
+      fetchStart(page);
+      return;
+    } else {
+      props.searchFilter(searchFilter);
+    }
   };
 
   const nextPageHandler = () => {
@@ -78,6 +87,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchStart: (page) => dispatch(actions.fetchStart(page)),
+    searchFilter: (payload) => dispatch(actions.searchFilter(payload)),
   };
 };
 

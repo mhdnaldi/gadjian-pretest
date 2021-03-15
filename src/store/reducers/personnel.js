@@ -25,6 +25,11 @@ const reducer = (state = initialState, action) => {
         loading: false,
         error: action.error,
       };
+    case actionTypes.SEARCH_FILTER:
+      return {
+        ...state,
+        personnels: action.data,
+      };
     default:
       return state;
   }

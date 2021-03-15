@@ -2,3 +2,4 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_PENDING = "FETCH_PENDING";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILED = "FETCH_FAILED";
+export const SEARCH_FILTER = "SEARCH_FILTER";

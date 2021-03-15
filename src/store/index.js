@@ -1,1 +1,1 @@
-export { fetchStart } from "./actions/personnel";
+export { fetchStart, searchFilter } from "./actions/personnel";
