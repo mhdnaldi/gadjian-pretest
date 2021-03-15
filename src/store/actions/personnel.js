@@ -2,7 +2,9 @@ import axios from "axios";
 import * as actionTypes from "../actionTypes";
 
 export const fetchStart = (page) => {
+  console.log(page);
   return (dispatch) => {
+    dispatch(fetchPending());
     axios
       .get(`https://randomuser.me/api/?page=${page}&results=4&seed=abc`)
       .then((res) => {
@@ -11,6 +13,12 @@ export const fetchStart = (page) => {
       .catch((err) => {
         dispatch(fetchFailed(err.response));
       });
+  };
+};
+
+export const fetchPending = () => {
+  return {
+    type: actionTypes.FETCH_PENDING,
   };
 };
 

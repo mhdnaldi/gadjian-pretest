@@ -3,6 +3,20 @@ import "./cardList.css";
 import Card from "./card/Card";
 
 const cardList = (props) => {
+  let prevStyle;
+  let nextStyle;
+  if (props.page > 1) {
+    prevStyle = "prev";
+  } else {
+    prevStyle = "prev prev-disabled";
+  }
+
+  if (props.page > 1250) {
+    nextStyle = "next next-disabled";
+  } else {
+    nextStyle = "next";
+  }
+
   let card = null;
   if (props.personnels) {
     card = props.personnels.map((el, i) => {
@@ -29,10 +43,10 @@ const cardList = (props) => {
     <React.Fragment>
       <div className='card-list'>{card}</div>
       <div className='pagination'>
-        <div className='prev' onClick={props.previous}>
+        <div className={prevStyle} onClick={props.previous}>
           <div>{"<"}</div>Previous Page
         </div>
-        <div className='next' onClick={props.next}>
+        <div className={nextStyle} onClick={props.next}>
           <div>{">"}</div>Next Page
         </div>
       </div>

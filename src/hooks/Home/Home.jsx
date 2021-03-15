@@ -4,7 +4,7 @@ import Header from "../../components/header/Header";
 import Aside from "../../components/aside/Aside";
 import Input from "../../components/input/Input";
 import CardList from "../../components/cardList/CardList";
-
+import Spinner from "../../components/spinner/Spinner";
 import * as actions from "../../store/index.js";
 import { connect } from "react-redux";
 
@@ -20,8 +20,17 @@ const Home = (props) => {
   };
 
   const nextPageHandler = () => {
-    let newPage = page++;
-    setPage(newPage);
+    if (page === 1250) {
+      return;
+    }
+    setPage((prevState) => prevState + 1);
+  };
+
+  const prevPageHandler = () => {
+    if (page === 1) {
+      return;
+    }
+    setPage((prevState) => prevState - 1);
   };
 
   return (
@@ -43,10 +52,16 @@ const Home = (props) => {
               </div>
             </div>
           </div>
-          <CardList
-            personnels={props.personnels}
-            next={() => nextPageHandler()}
-          />
+          {props.loading ? (
+            <Spinner />
+          ) : (
+            <CardList
+              page={page}
+              personnels={props.personnels}
+              next={() => nextPageHandler()}
+              previous={() => prevPageHandler()}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -56,6 +71,7 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
   return {
     personnels: state.personnels,
+    loading: state.loading,
   };
 };
 

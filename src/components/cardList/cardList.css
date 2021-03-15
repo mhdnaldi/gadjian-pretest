@@ -16,15 +16,15 @@
 
 .prev,
 .next {
-  color: rgb(180, 180, 180);
+  color: black;
   position: relative;
   padding: 5px 20px;
   cursor: pointer;
 }
 
-.prev:hover,
-.next:hover {
-  color: black;
+.prev-disabled,
+.next-disabled {
+  color: rgb(180, 180, 180);
 }
 
 .prev div {
