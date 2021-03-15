@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./home.css";
 import Header from "../../components/header/Header";
 import Aside from "../../components/aside/Aside";
 import Input from "../../components/input/Input";
 import CardList from "../../components/cardList/CardList";
 
+import * as actions from "../../store/index.js";
+import { connect } from "react-redux";
+
 const Home = (props) => {
+  let [page, setPage] = useState(1);
+  const { fetchStart } = props;
+  useEffect(() => {
+    fetchStart(page);
+  }, [fetchStart, page]);
+
   const findPersonnelHandler = (event) => {
     console.log(event.target.value);
   };
+
+  const nextPageHandler = () => {
+    let newPage = page++;
+    setPage(newPage);
+  };
+
   return (
     <div>
       <Header />
@@ -28,12 +43,26 @@ const Home = (props) => {
               </div>
             </div>
           </div>
-
-          <CardList />
+          <CardList
+            personnels={props.personnels}
+            next={() => nextPageHandler()}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    personnels: state.personnels,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchStart: (page) => dispatch(actions.fetchStart(page)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

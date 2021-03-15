@@ -8,26 +8,28 @@ const card = (props) => {
       <div className='card-id'>
         <div>
           <p>Personnel ID:</p>
-          <strong>123456</strong>
+          <strong>{props.id}</strong>
         </div>
         <img src={dots} alt='' />
       </div>
-      <div className='card-img'>Photo</div>
+      <img className='card-img' src={props.picture} alt='' />
       <div>
         <strong>Name</strong>
-        <p>Muhammad Naldi</p>
+        <p>
+          {props.fname} {props.lname}
+        </p>
       </div>
       <div>
         <strong>Telephone</strong>
-        <p>081269935503</p>
+        <p>{props.phone}</p>
       </div>
       <div>
         <strong>Birthday</strong>
-        <p>20 Mei 1997</p>
+        <p>{props.birthday}</p>
       </div>
       <div>
         <strong>Email</strong>
-        <p>mhd.naldi@yahoo.com</p>
+        <p>{props.email}</p>
       </div>
     </div>
   );
