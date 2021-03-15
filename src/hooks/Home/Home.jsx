@@ -3,6 +3,7 @@ import "./home.css";
 import Header from "../../components/header/Header";
 import Aside from "../../components/aside/Aside";
 import Input from "../../components/input/Input";
+import CardList from "../../components/cardList/CardList";
 
 const Home = (props) => {
   const findPersonnelHandler = (event) => {
@@ -27,6 +28,8 @@ const Home = (props) => {
               </div>
             </div>
           </div>
+
+          <CardList />
         </div>
       </div>
     </div>

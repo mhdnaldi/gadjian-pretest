@@ -1,0 +1,48 @@
+.card {
+    width: 100%;
+    border-radius: 8px;
+    background-color: white;
+    padding: 0px 10px;
+}
+
+.card-id {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(180,180,180);
+    padding-bottom: 5px;
+}
+
+.card-id p {
+    display: inline-block;
+    color:rgb(180, 180, 180);
+}
+
+.card-id img {
+    width: 25px;
+}
+
+.card-id strong {
+    color: #32BDBF;
+    margin-left: 4px
+}
+
+.card-img {
+    margin: 10px auto !important;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid black
+
+}
+
+.card div {
+    margin: 10px 0;
+}
+
+.card div p {
+    color:rgb(180, 180, 180);
+    font-size: 14px;
+    margin-top: 2px;
+}
