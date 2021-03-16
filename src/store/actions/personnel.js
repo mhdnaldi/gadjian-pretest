@@ -2,7 +2,6 @@ import axios from "axios";
 import * as actionTypes from "../actionTypes";
 
 export const fetchStart = (page) => {
-  console.log(page);
   return (dispatch) => {
     dispatch(fetchPending());
     axios
@@ -36,7 +35,6 @@ export const fetchFailed = (error) => {
   };
 };
 export const searchFilter = (data) => {
-  console.log(data);
   return {
     type: actionTypes.SEARCH_FILTER,
     data,

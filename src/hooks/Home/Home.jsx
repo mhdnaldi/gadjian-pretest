@@ -3,15 +3,14 @@ import "./home.css";
 import Header from "../../components/header/Header";
 import Aside from "../../components/aside/Aside";
 import Input from "../../components/input/Input";
-import Backdrop from "../../components/backdrop/Backdrop";
-// import CardList from "../../components/cardList/CardList";
-
 import Spinner from "../../components/spinner/Spinner";
 import * as actions from "../../store/index.js";
 import { connect } from "react-redux";
-const CardList = lazy(() => import("../../components/cardList/CardList"));
+import SideDrawer from "../../components/sidedrawer/Sidedrawer";
 
+const CardList = lazy(() => import("../../components/cardList/CardList"));
 const Home = (props) => {
+  let [showSideDrawer, setShowSideDrawer] = useState(false);
   let [page, setPage] = useState(1);
   const { fetchStart } = props;
   useEffect(() => {
@@ -44,9 +43,21 @@ const Home = (props) => {
     setPage((prevState) => prevState - 1);
   };
 
+  const openSideDrawerHandler = () => {
+    setShowSideDrawer(true);
+  };
+
+  const closeSideDrawerHandler = () => {
+    setShowSideDrawer(false);
+  };
+
   return (
-    <div>
-      <Header />
+    <React.Fragment>
+      <SideDrawer
+        styleName={showSideDrawer}
+        close={() => closeSideDrawerHandler()}
+      />
+      <Header click={() => openSideDrawerHandler()} />
       <div className='home-main'>
         <Aside />
         <div className='home-personnel-list'>
@@ -77,7 +88,7 @@ const Home = (props) => {
           )}
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

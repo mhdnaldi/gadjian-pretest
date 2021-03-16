@@ -47,7 +47,7 @@
   transform: translateY(-3px);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .home-main {
     grid-template-columns: 1fr;
   }
@@ -66,6 +66,9 @@
 
   .add-personnel-btn {
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
   }
 }

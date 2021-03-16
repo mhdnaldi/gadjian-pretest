@@ -1,0 +1,37 @@
+.sidedrawer {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  width: 230px;
+  height: 216%;
+  padding: 20px;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.sidedrawer div {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidedrawer div:hover {
+  color: #32bdbf;
+}
+
+.sidedrawer div img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.sidedrawer-open {
+  transform: translateX(0px);
+  display: block;
+  opacity: 1;
+}
+
+.sidedrawer-close {
+  display: block;
+  opacity: 0;
+  transform: translateX(-300px);
+}

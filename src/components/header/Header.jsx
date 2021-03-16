@@ -7,7 +7,12 @@ const header = (props) => {
   return (
     <div className='header'>
       <div>
-        <img className='burger-menu' src={burgerMenu} alt='' />
+        <img
+          className='burger-menu'
+          src={burgerMenu}
+          alt=''
+          onClick={props.click}
+        />
         <img src={logo} alt='gadjian' />
       </div>
       <div className='header-profile'>
