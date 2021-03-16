@@ -1,48 +1,71 @@
 .home-main {
-    display: grid;
-    grid-template-columns:  1fr 4fr;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
 
 .home-personnel-list {
-    background-color: rgb(221, 221, 221);
+  background-color: rgb(221, 221, 221);
 }
 
 .personnel-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    margin: 30px;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
 }
 
 .personnel-list-header h2 {
-    color: #32BDBF;
+  color: #32bdbf;
 }
 
 .personnel-list-header p {
-    margin-top: 4px;
-    color: rgb(180, 180, 180);
+  margin-top: 4px;
+  color: rgb(180, 180, 180);
 }
 
 .utility {
-    display: flex
+  display: flex;
 }
 
 .add-personnel-btn {
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 5px 20px;
-    display: flex;
-    align-items: center;
-    background-color: #32BDBF;
-    color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #32bdbf;
+  color: white;
 }
 
 .plus {
-    font-size: 30px;
-    margin-left: 8px;
-    margin-right: -3px;
-    color: white;
-    transform: translateY(-3px) 
+  font-size: 30px;
+  margin-left: 8px;
+  margin-right: -3px;
+  color: white;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 400px) {
+  .home-main {
+    grid-template-columns: 1fr;
+  }
+
+  .personnel-list-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 10px;
+  }
+
+  .utility {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+
+  .add-personnel-btn {
+    margin: 0;
+    margin-top: 10px;
+  }
 }

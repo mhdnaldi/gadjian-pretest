@@ -19,31 +19,27 @@ const card = (props) => {
           </div>
           <img src={dots} alt='' />
         </div>
-        <div className='card-img'>
-          <LazyLoadImage
-            effect='blur'
-            className='card-img'
-            src={props.picture}
-            alt=''
-          />
-        </div>
-        <div>
-          <strong>Name</strong>
-          <p>
-            {props.fname} {props.lname}
-          </p>
-        </div>
-        <div>
-          <strong>Telephone</strong>
-          <p>{props.phone}</p>
-        </div>
-        <div>
-          <strong>Birthday</strong>
-          <p>{props.birthday}</p>
-        </div>
-        <div>
-          <strong>Email</strong>
-          <p>{props.email}</p>
+        <div className='flex-mobile'>
+          <div className='card-img'>
+            <LazyLoadImage
+              effect='blur'
+              className='card-img'
+              src={props.picture}
+              alt=''
+            />
+          </div>
+          <div className='card-info'>
+            <strong>Name</strong>
+            <p>
+              {props.fname} {props.lname}
+            </p>
+            <strong>Telephone</strong>
+            <p>{props.phone}</p>
+            <strong>Birthday</strong>
+            <p>{props.birthday}</p>
+            <strong>Email</strong>
+            <p>{props.email}</p>
+          </div>
         </div>
       </div>
     </LazyLoadComponent>

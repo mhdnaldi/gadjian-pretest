@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import "./home.css";
 import Header from "../../components/header/Header";
 import Aside from "../../components/aside/Aside";
 import Input from "../../components/input/Input";
-import CardList from "../../components/cardList/CardList";
+import Backdrop from "../../components/backdrop/Backdrop";
+// import CardList from "../../components/cardList/CardList";
+
 import Spinner from "../../components/spinner/Spinner";
 import * as actions from "../../store/index.js";
 import { connect } from "react-redux";
+const CardList = lazy(() => import("../../components/cardList/CardList"));
 
 const Home = (props) => {
   let [page, setPage] = useState(1);
@@ -16,7 +19,6 @@ const Home = (props) => {
   }, [fetchStart, page]);
 
   const findPersonnelHandler = (event) => {
-    console.log(event.target.value);
     let searchFilter = props.personnels.filter((el) =>
       el.name.first.toLowerCase().includes(event.target.value.toLowerCase())
     );
@@ -64,12 +66,14 @@ const Home = (props) => {
           {props.loading ? (
             <Spinner />
           ) : (
-            <CardList
-              page={page}
-              personnels={props.personnels}
-              next={() => nextPageHandler()}
-              previous={() => prevPageHandler()}
-            />
+            <Suspense fallback={<p>Loading...</p>}>
+              <CardList
+                page={page}
+                personnels={props.personnels}
+                next={() => nextPageHandler()}
+                previous={() => prevPageHandler()}
+              />
+            </Suspense>
           )}
         </div>
       </div>
