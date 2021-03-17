@@ -25,6 +25,7 @@
 .prev-disabled,
 .next-disabled {
   color: rgb(180, 180, 180);
+  cursor: default;
 }
 
 .prev div {
